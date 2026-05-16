@@ -667,3 +667,290 @@ footer {
   .nav-cta { display: none; }
   .h-scroll { display: none; }
 }
+/* ══════════════════════════════════════════
+   TABLEAU PORTFOLIO CAROUSEL
+══════════════════════════════════════════ */
+
+.tableau-portfolio-section {
+  position: relative;
+  z-index: 1;
+}
+
+.tableau-carousel {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.tableau-carousel-window {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--r);
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 2px 16px rgba(26, 158, 80, 0.04);
+}
+
+.tableau-carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.tableau-slide {
+  min-width: 100%;
+  width: 100%;
+  flex: 0 0 100%;
+  padding: 24px;
+  background: var(--card);
+  box-sizing: border-box;
+}
+
+.tableau-slide-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.tableau-slide-header h3 {
+  font-family: var(--hf);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin: 6px 0 0;
+}
+
+.tableau-slide-header p {
+  color: var(--text2);
+  font-size: 0.86rem;
+  font-weight: 300;
+  line-height: 1.55;
+  max-width: 660px;
+}
+
+.tableau-badge {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 13px;
+  border-radius: 100px;
+  background: rgba(0, 184, 74, 0.08);
+  color: var(--emerald);
+  border: 1px solid rgba(0, 184, 74, 0.25);
+}
+
+/* Tableau preview box */
+.tableau-embed-wrap {
+  width: 100%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--bg2);
+  position: relative;
+}
+
+/* Makes the dashboard content look zoomed out */
+.tableau-embed-wrap .tableauPlaceholder {
+  width: 1366px !important;
+  height: 795px !important;
+  transform: scale(0.66);
+  transform-origin: top left;
+  max-width: none !important;
+}
+
+/* Keeps Tableau at desktop size before scaling */
+.tableau-embed-wrap object,
+.tableau-embed-wrap iframe,
+.tableau-embed-wrap .tableauViz {
+  width: 1366px !important;
+  height: 795px !important;
+  max-width: none !important;
+}
+
+.tableau-carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--border2);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--green);
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transform: translateY(-50%);
+  box-shadow: 0 8px 24px rgba(26, 158, 80, 0.12);
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.tableau-carousel-btn:hover {
+  background: var(--mint);
+  border-color: var(--green);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 12px 32px rgba(26, 158, 80, 0.2);
+}
+
+.tableau-carousel-prev {
+  left: -24px;
+}
+
+.tableau-carousel-next {
+  right: -24px;
+}
+
+.tableau-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 26px;
+}
+
+.tableau-carousel-dot {
+  width: 9px;
+  height: 9px;
+  border: none;
+  border-radius: 50%;
+  background: var(--muted2);
+  opacity: 0.45;
+  cursor: none;
+  transition: width 0.25s, opacity 0.25s, background 0.25s;
+}
+
+.tableau-carousel-dot.active {
+  width: 26px;
+  border-radius: 100px;
+  background: var(--green);
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════
+   TABLEAU RESPONSIVE
+══════════════════════════════════════════ */
+
+@media (max-width: 1000px) {
+  .tableau-embed-wrap {
+    max-width: 680px;
+    height: 390px;
+  }
+
+  .tableau-embed-wrap .tableauPlaceholder {
+    transform: scale(0.57);
+  }
+
+  .tableau-carousel-prev {
+    left: 10px;
+  }
+
+  .tableau-carousel-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tableau-slide {
+    padding: 18px;
+  }
+
+  .tableau-slide-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tableau-slide-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .tableau-slide-header p {
+    font-size: 0.84rem;
+  }
+
+  .tableau-embed-wrap {
+    max-width: 100%;
+    height: 340px;
+  }
+
+  .tableau-embed-wrap .tableauPlaceholder {
+    transform: scale(0.48);
+  }
+
+  .tableau-carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tableau-embed-wrap {
+    height: 290px;
+  }
+
+  .tableau-embed-wrap .tableauPlaceholder {
+    transform: scale(0.4);
+  }
+
+  .tableau-carousel-btn {
+    top: auto;
+    bottom: -66px;
+    transform: none;
+  }
+
+  .tableau-carousel-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .tableau-carousel-prev {
+    left: calc(50% - 58px);
+  }
+
+  .tableau-carousel-next {
+    right: calc(50% - 58px);
+  }
+
+  .tableau-carousel-dots {
+    margin-top: 82px;
+  }
+}
+
+/* Hide Tableau bottom toolbar/footer strip */
+.tableau-embed-wrap,
+.tableau-embed-box {
+  height: 485px !important;
+  overflow: hidden !important;
+}
+
+/* Keep the Tableau dashboard itself the same size */
+.tableau-embed-wrap .tableauPlaceholder,
+.tableau-embed-box .tableauPlaceholder {
+  width: 1366px !important;
+  height: 795px !important;
+  transform: scale(0.66) !important;
+  transform-origin: top left !important;
+  max-width: none !important;
+}
+
+.tableau-embed-wrap object,
+.tableau-embed-wrap iframe,
+.tableau-embed-wrap .tableauViz,
+.tableau-embed-box object,
+.tableau-embed-box iframe,
+.tableau-embed-box .tableauViz {
+  width: 1366px !important;
+  height: 795px !important;
+  max-width: none !important;
+}
