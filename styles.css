@@ -954,3 +954,9 @@ footer {
   height: 795px !important;
   max-width: none !important;
 }
+
+#bg-canvas,
+#cursor-dot,
+#cursor-ring {
+  pointer-events: none;
+}
